@@ -6,7 +6,6 @@ include("connect.php");
 			$new_subject_credit = trim($_POST['posted_credit']);
 			$new_subject_KERESZT = trim($_POST['posted_KERESZT']);
 
-
 			$beillesztes="INSERT INTO targyak(subject_name, subject_semester, credit) VALUES ('".$new_subject_name."','".$new_subject_semester."','".$new_subject_credit."')";
 			mysqli_query($adatbazis_kapcs,$beillesztes);
 

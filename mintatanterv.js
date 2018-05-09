@@ -52,12 +52,8 @@ function draw_line(from, to, color) {
 	var c = document.getElementById("bg-canvas");
 	var ctx = c.getContext("2d");
 
-
-
-	
 	ctx.beginPath();
 	ctx.strokeStyle=color;
-
 
 	ctx.lineWidth=2;
 	ctx.moveTo(first_left+(first_width/2),first_top+first_height);
@@ -74,18 +70,12 @@ function get_n_draw() {
 	var colors = ['#607D8B', '#FF9800', '#CDDC39', '#8BC34A', '#009688', '#00BCD4', '#9C27B0', '#E91E63', '#F44336'];
 
 	$.get("draw-mintatanterv-lines.php", function(data, status){
-
-		//clear_canvas();
-
 		var all_string = data;
-		//alert(all_string);
 
 		var all_arr = all_string.split("!!");
 		all_arr.pop();
-    	//var id = arr[1];
 
-    	all_arr.forEach(function(item){
-            	
+    	all_arr.forEach(function(item){	
             var to_arr = item.split(">");
 
             var from_str = to_arr[1];
@@ -99,17 +89,10 @@ function get_n_draw() {
        		});
        	});
     }); //get connected elements from db
-
 }
 
 
-
-
-
-
 $(document).ready(function(){
-
-	
 	list_elements();
 
 	$("#confirm_new_subject_button").click(function(){
@@ -126,15 +109,12 @@ $(document).ready(function(){
 			posted_KERESZT: new_subject_KERESZT 
 		}, function(data){
 		
-
 		list_elements();
 		new_overlay_off();
 
 		});
 
 	}); //confirm new subject clicked
-
-
 
 	$(".subjects-container").on("click", ".subject-item" , function(){
         var this_edit_id = $(this).attr('id');
@@ -156,15 +136,12 @@ $(document).ready(function(){
 
     }); //click on subject
 
-
-
 	$("#edit-container").on("click", "#confirm_delete_subject_button" , function(){
         
         var delete_subject_id_class = $(this).attr('class');
     	var arr = delete_subject_id_class.split("?");
     	var id = arr[1];
         
-
         $.post('delete-mintatanterv.php',{
 			edit_id: id
 		}, function(data){
@@ -176,8 +153,6 @@ $(document).ready(function(){
 		list_elements();
 
     }); //click on delete
-
-
 
 	$("#edit-container").on("click", "#confirm_edit_subject_button" , function(){
         
@@ -198,9 +173,6 @@ $(document).ready(function(){
   			required_subjects_id += req_id + ";";
 		});
 
-		//alert(required_subjects_id);
-
-		
 		$.post('edit-mintatanterv.php',{
 			required_subjects_id: required_subjects_id,
 			edit_id: id,
@@ -227,10 +199,6 @@ $(document).ready(function(){
 	$(this).toggleClass("req-selected");
 
     }); //click on required subject
-
-
-
-
 
 }); //document ready
 

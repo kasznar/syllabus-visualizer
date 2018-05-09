@@ -3,16 +3,13 @@ include("connect.php");
 
 $edit_id = trim($_POST['edit_id']);
 
-
 $result = mysqli_query($adatbazis_kapcs,"SELECT * FROM targyak WHERE (id='".$edit_id."')");
 $row = mysqli_fetch_array($result);
-
 
 echo ('
 	<p class="cancel">
 	<b class="cancel-overlay" onclick="edit_overlay_off()">X</b>
 	</p>
-
 
 	<p>
 	Tárgynév<br>
@@ -38,16 +35,10 @@ echo ('
 	</p>
 ');
 
-
-
-
 $required = mysqli_query($adatbazis_kapcs,"SELECT * FROM targyak");
-
 
 echo ('<p> Kötelező előtanulmány </p>');
 
-
-/*echo ($row["subject_semester"]);*/
 echo '<div class="required-item-container">';
 
 while($row2 = mysqli_fetch_array($required))
