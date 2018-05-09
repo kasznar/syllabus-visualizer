@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>csuszometer</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="mintatanterv.js"></script> 
+</head>
+
+	<body>
+		<canvas id="bg-canvas">
+			
+		</canvas>
+
+		<div class="container" >
+
+			<div class="control-panel">
+				<div id="title-text">
+					<p>csusz-O-meter</p>
+				</div>
+
+				<div class="new-subject-button" onclick="new_overlay_on()">
+					<p>Új Tantárgy</p>
+				</div>
+				
+			</div> <!-- control panel -->
+
+			<div class="subjects-container">
+				<!--PHP bepakolja a tárgyakat -->
+			</div>
+		</div> <!-- main site container -->
+
+		<div class="overlay" id="new_overlay">
+			<div  class="overlay-container" id="add-new-container">
+				<div class="overlay-wrapper">
+					<p class="cancel">
+						<b class="cancel-overlay" onclick="new_overlay_off()">X</b>
+					</p>
+
+					<p>
+						Tárgynév<br>
+						<input type="text" id="subject_name">
+					</p>
+					<p>
+						Mintatanterv szerinti félév<br>
+						<button type="button" class="circle-button"></button>
+						<input type="text" class="numInput" id="subject_semester">
+						<button type="button" class="circle-button"></button>
+					</p>
+					<p>
+						Kredit<br>
+						<button type="button" class="circle-button"></button>
+						<input type="text" class="numInput" id="subject_credit">
+						<button type="button" class="circle-button"></button>
+					</p>
+					<p>
+						Kereszt félév
+						<input type="checkbox" id="subject_KERESZT">
+					</p>
+					<p class="button-row">
+						<input type="submit" class="button" id="confirm_new_subject_button" value="Létrehozás">
+					</p>
+				</div>
+			</div> 
+		</div> <!-- new subject overlay -->
+
+		<div class="overlay" id="edit_overlay">
+			<div  class="overlay-container" id="edit-container">
+				<div class="overlay-wrapper" id="edit_overlay-wrapper">
+
+				</div>
+			</div> 
+		</div> <!-- new subject overlay -->
+
+
+
+
+
+	</body>
+
+
+	</html>
+
+
+
+
+
+
+
+
